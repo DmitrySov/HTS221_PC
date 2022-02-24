@@ -36,7 +36,16 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+typedef struct {
+	uint8_t device;									//	"Тип прибора";
+	uint8_t board_version;							//	"Версия платы";
+	uint8_t soft_version;							//	"Версия ПО";
+	uint8_t res[5];									//	"Резервные байты";
+	uint16_t device_num;							//	"Заводской номер";
+	uint8_t baud_rate;								//	"Код скорости UART";
+	uint8_t address;								//	"Адрес в сети Modbus";
+	uint8_t res1[3];								//	"Резервные байты";
+} irvis_passport_t;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -53,6 +62,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+
 
 /* USER CODE END EFP */
 

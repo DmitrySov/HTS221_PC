@@ -9,6 +9,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include modbus/subdir.mk
 -include Drivers/STM32L4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -34,34 +35,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := HTS221_PC
+BUILD_ARTIFACT_NAME := Modbus_HTS221
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-HTS221_PC.elf \
+Modbus_HTS221.elf \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-HTS221_PC.list \
+Modbus_HTS221.list \
 
 OBJCOPY_BIN += \
-HTS221_PC.bin \
+Modbus_HTS221.bin \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: HTS221_PC.elf secondary-outputs
+main-build: Modbus_HTS221.elf secondary-outputs
 
 # Tool invocations
-HTS221_PC.elf: $(OBJS) $(USER_OBJS) C:\Users\sovetnikov\STM32CubeIDE\workspace_1.8.0\HTS221_PC\STM32L475VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "HTS221_PC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\sovetnikov\STM32CubeIDE\workspace_1.8.0\HTS221_PC\STM32L475VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HTS221_PC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Modbus_HTS221.elf: $(OBJS) $(USER_OBJS) C:\Users\sovetnikov\STM32CubeIDE\workspace_1.8.0\Modbus_HTS221\STM32L475VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Modbus_HTS221.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\sovetnikov\STM32CubeIDE\workspace_1.8.0\Modbus_HTS221\STM32L475VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Modbus_HTS221.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,19 +71,19 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-HTS221_PC.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "HTS221_PC.list"
+Modbus_HTS221.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Modbus_HTS221.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-HTS221_PC.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "HTS221_PC.bin"
+Modbus_HTS221.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "Modbus_HTS221.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) HTS221_PC.bin HTS221_PC.elf HTS221_PC.list default.size.stdout
+	-$(RM) Modbus_HTS221.bin Modbus_HTS221.elf Modbus_HTS221.list default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)

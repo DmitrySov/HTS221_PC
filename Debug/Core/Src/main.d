@@ -29,7 +29,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rtc_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/Inc/HTS221.h ../Core/Inc/main.h
+ ../Core/Inc/HTS221.h ../Core/Inc/main.h ../Core/Inc/lcd1602_i2c_lib.h \
+ C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus.h \
+ C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus_slave.h \
+ C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus_slave_0x10.h \
+ C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus_slave_0x03.h \
+ C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus_slave_map.h \
+ C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/usart0.h \
+ C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus.h
 
 ../Core/Inc/main.h:
 
@@ -96,3 +103,19 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/HTS221.h:
 
 ../Core/Inc/main.h:
+
+../Core/Inc/lcd1602_i2c_lib.h:
+
+C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus.h:
+
+C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus_slave.h:
+
+C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus_slave_0x10.h:
+
+C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus_slave_0x03.h:
+
+C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus_slave_map.h:
+
+C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/usart0.h:
+
+C:/Users/sovetnikov/STM32CubeIDE/workspace_1.8.0/Modbus_HTS221/modbus/modbus.h:

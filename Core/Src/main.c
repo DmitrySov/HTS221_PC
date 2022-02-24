@@ -24,6 +24,13 @@
 #include "HTS221.h"
 #include "stdio.h"
 #include "string.h"
+#include "lcd1602_i2c_lib.h"
+#include "modbus.h"
+#include "modbus_slave.h"
+#include "modbus_slave_0x10.h"
+#include "modbus_slave_0x03.h"
+#include "modbus_slave_map.h"
+#include "usart0.h"
 
 /* USER CODE END Includes */
 
@@ -49,6 +56,7 @@ RTC_HandleTypeDef hrtc;
 UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
+extern volatile bool usart0_modbus_timeout;
 int16_t temp;
 uint16_t humidity;
 uint8_t flag_HTS221 = 0;
@@ -109,7 +117,6 @@ int main(void)
   HTS221_set_output_data_rate(&HTS221, Hz_1);
  // HTS221_get_data_OneHot(&HTS221, &temp, &humidity);
   HAL_UART_Receive_IT(&huart4, (uint8_t*)rxBuffer, 1);
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
