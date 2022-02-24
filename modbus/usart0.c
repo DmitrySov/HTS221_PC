@@ -19,7 +19,7 @@
 
 /*_____ M A C R O S ________________________________________________________*/
 
-static UART_HandleTypeDef huart4;
+//static USART_TypeDef USART4;
 
 /*_____ D E F I N I T I O N ________________________________________________*/
 
@@ -158,6 +158,11 @@ void USART0_Handler(void)
 	uint32_t received_byte;															//	переменная для полученных данных;
 //	static uint8_t i=0;
 	
+    if (LL_USART_IsActiveFlag_RXNE(UART4) && LL_USART_EnableIT_RXNE(UART4))
+	{
+
+	}
+
 	dw_status = usart_get_status(USART_SERIAL);										//	сохраняем статусный регистр UART_CSR;
 	us_irq_mask = usart_get_interrupt_mask(USART_SERIAL);							//	сохраняем регистр прерываний UART_IMR;
 	
